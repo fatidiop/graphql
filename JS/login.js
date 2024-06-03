@@ -40,7 +40,7 @@ console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
     })
     .then(data => {
         console.log('Data received from server:', data); // Diagnostic des données reçues
-        localStorage.setItem('jwtToken', data.token);
+        localStorage.setItem('jwtToken', data);
         // Redirigez vers la page principale ou effectuez une action similaire
         window.location.href = '/main-page-url';
     })
