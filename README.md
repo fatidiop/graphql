@@ -22,7 +22,7 @@ GraphQL est un outil conçu pour vous aider à générer une page web personnali
 
 
 ## Utilisation
- cliquez sur ce lien : 
+ [cliquez ici](https://graphql-fatidiop.vercel.app/)
 
 ## Auteur
 Fatimata Amadou Diop(fatidiop)
@@ -35,7 +35,7 @@ GRAPHQL
 │   ├── graphql.js
 │   └── login.js
 │   home.html/
-│   login.html/
+│   index.html/
 ├── README.md
 └── ...
 ```
