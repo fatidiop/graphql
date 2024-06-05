@@ -60,5 +60,5 @@ function logOut() {
     // Rediriger vers la page home.html
     window.location.href = '/index.html';
 
-    console.log('logout succed !!');
+    //console.log('logout succed !!');
 }
