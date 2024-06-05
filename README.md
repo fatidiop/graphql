@@ -34,9 +34,8 @@ GRAPHQL
 ├── JS/
 │   ├── graphql.js
 │   └── login.js
-├── 
-│   ├── home.html/
-│   ├── login.html/
+│   home.html/
+│   login.html/
 ├── README.md
 └── ...
 ```
