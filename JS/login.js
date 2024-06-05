@@ -58,7 +58,7 @@ function logOut() {
     localStorage.removeItem('jwtToken');
     
     // Rediriger vers la page home.html
-    window.location.href = '/login.html';
+    window.location.href = '/index.html';
 
     console.log('logout succed !!');
 }
