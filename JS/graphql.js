@@ -161,7 +161,6 @@ async function fetchLogin() {
           );
       }
       const responseData = await response.json();
-      console.log('FIRST RESPONSE :\n', responseData);
       if (responseData.data.user.length > 0) {
           variables.name = responseData.data.user[0].login;
           variables.userId = responseData.data.user[0].id;
@@ -192,14 +191,12 @@ async function fetchLogin() {
           }),
       });
       if (!response.ok) {
-        // console.log('not ok')
+        
           throw new Error(
               `Erreur HTTP: ${response.status}, ${response.statusText}`
           );
       }
       const responseData = await response.json();
-      // console.log('SECOND RESPONSE :\n', responseData);
-      //  console.log(responseData.data.event_user[0].user.auditRatio);
 
       //Recuperation puis affiachage des XP
        let total_xp = responseData.data.event_user[0].user.transactions_aggregate.aggregate.sum.amount;
@@ -225,16 +222,7 @@ async function fetchLogin() {
 
       //Message de bienvenue
       document.getElementById("identity").textContent = `Hi ${responseData.data.event_user[0].user.firstName} !` 
-      // if (responseData.data.user.lengt h > 0) {
-      //     variables.name = responseData.data.user[0].login;
-      //     variables.userId = responseData.data.user[0].id;
-      //     variables.campus = responseData.data.user[0].campus;
-      //     fetchData();
-      // } else {
-      //     console.error(
-      //         "Aucun utilisateur trouvé avec l'adresse e-mail spécifiée."
-      //     );
-      // }
+  
   } catch (error) {
       console.error(
           "Erreur lors de la récupération des données GraphQL :",
@@ -330,3 +318,9 @@ function drawLineGraph(data, containerId) {
 }
 
 // drawLineGraph(data, 'line');
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.location.pathname == '/home.html' && !localStorage.getItem('jwtToken')) {
+    window.location.href = '/405.html'
+  }
+});

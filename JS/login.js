@@ -53,8 +53,14 @@ console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
 
 document.getElementById('loginbtn').addEventListener('click', handleLogin);
 
+// Exemple de stockage des informations de session
+// localStorage.setItem('sessionId', 'votreSessionIdIci');
+// localStorage.setItem('username', 'nomUtilisateur');
+
 function logOut() {
     // Supprimer le jeton JWT du localStorage
+    localStorage.removeItem('sessionId');
+    localStorage.removeItem('username');
     localStorage.removeItem('jwtToken');
     
     // Rediriger vers la page home.html
