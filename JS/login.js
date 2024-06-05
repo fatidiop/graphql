@@ -34,7 +34,8 @@ console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
     .then(response => {
         console.log('HTTP Status Code:', response.status); // Diagnostic du statut HTTP
         if (!response.ok) {
-            return response.text().then(text => { throw new Error(text); });
+            alert("invalid username or password ") 
+            throw new Error(response.message);
         }
         return response.json(); // Parse the JSON response into native JavaScript objects
     })
@@ -42,7 +43,7 @@ console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
         console.log('Data received from server:', data); // Diagnostic des données reçues
         localStorage.setItem('jwtToken', data);
         // Redirigez vers la page principale ou effectuez une action similaire
-        window.location.href = '/main-page-url';
+        window.location.href = '/pages/home.html';
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
@@ -51,3 +52,13 @@ console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
 }
 
 document.getElementById('loginbtn').addEventListener('click', handleLogin);
+
+function logOut() {
+    // Supprimer le jeton JWT du localStorage
+    localStorage.removeItem('jwtToken');
+    
+    // Rediriger vers la page home.html
+    window.location.href = '/pages/login.html';
+
+    console.log('logout succed !!');
+}

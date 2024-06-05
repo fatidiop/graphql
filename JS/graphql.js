@@ -72,13 +72,6 @@ query getUserInfo($name:String!, $userId:Int!, $campus:String!) {
             name
           }
         }
-        AllCheckpointDid: progresses_aggregate(
-          where: {object: {name: {_eq: "Checkpoint"}}, grade: {_is_null: false}}
-        ) {
-          aggregate {
-            count
-          }
-        }
         results(
           where: {object: {name: {_eq: "Checkpoint"}}, grade: {_is_null: false}}
           order_by: {grade: desc}
@@ -90,8 +83,6 @@ query getUserInfo($name:String!, $userId:Int!, $campus:String!) {
           amount
           path
         }
-        totalUp
-        totalDown
         transactions(
           order_by: [{ type: desc }, { amount: desc }]
           where: { 
@@ -113,7 +104,7 @@ query getUserInfo($name:String!, $userId:Int!, $campus:String!) {
             }
           }
       }
-      createdAt
+      
     }
     audit(
       where: {
@@ -207,8 +198,9 @@ async function fetchLogin() {
           );
       }
       const responseData = await response.json();
-      console.log('SECOND RESPONSE :\n', responseData);
-       console.log(responseData.data.event_user[0].user.auditRatio);
+      // console.log('SECOND RESPONSE :\n', responseData);
+      //  console.log(responseData.data.event_user[0].user.auditRatio);
+
       //Recuperation puis affiachage des XP
        let total_xp = responseData.data.event_user[0].user.transactions_aggregate.aggregate.sum.amount;
       if (total_xp < 1000) {
@@ -221,14 +213,18 @@ async function fetchLogin() {
         document.getElementById("XP").textContent = (total_xp).toFixed(2) +' MB'
       }
 
+      //Recuperation puis affichage du level et de l'audit
       document.getElementById("level").textContent = responseData.data.event_user[0].level
       document.getElementById("audit").textContent = responseData.data.event_user[0].user.auditRatio.toFixed(2) 
       
+      //Mise en place des deux graphes svg
       const temp = responseData.data.event_user[0].user.xps;
       drawHistogram(temp, 'bar');
       const delta = responseData.data.event_user[0].user.audits;
       drawLineGraph(delta, 'line');
-      
+
+      //Message de bienvenue
+      document.getElementById("identity").textContent = `Hi ${responseData.data.event_user[0].user.firstName} !` 
       // if (responseData.data.user.lengt h > 0) {
       //     variables.name = responseData.data.user[0].login;
       //     variables.userId = responseData.data.user[0].id;

@@ -9,6 +9,7 @@
 	<!-- My CSS -->
 	<link rel="stylesheet" href="../style/home.css">
 	<script src="../JS/graphql.js" defer></script>
+	<script src="../JS/login.js" defer></script>
 
 	<title>AdminHub</title>
 </head>
@@ -19,12 +20,16 @@
 	<section id="sidebar">
 		
         <img src="../assets/logo.png" alt="Logo de ma page" width="100" height="100">
-		
+
+		<blockquote>
+         "In this system, it's not about <strong>to learn</strong> or <strong>learning for learning's</strong> sake,but to know how <strong>to work together</strong> to find, <strong>CON-NECT</strong> and activate the elements that <strong>we need</strong> for <strong>actualizing our projects</strong>."
+         <cite>- NICOLAS SADIRAC</cite>
+        </blockquote>
 			<li style="position: absolute; bottom: 1rem; left: 10rem">
-				<a href="#" class="logout">
+				<a href="#" class="logout" onclick="logOut()">
 					
                     <img src="../assets/eteindre.png" alt="logout" width="20" height="20">
-					<span class="text">Logout</span>
+					<span class="text" id="logoutBtn">Logout</span>
 				</a>
 			</li>
 	</section>
@@ -38,7 +43,7 @@
 		<main>
 			<div class="head-title">
 				<div class="left">
-					<h1>Hi buddy !</h1>
+					<h1 id="identity"></h1>
                     <img src="../assets/cerveau.png" alt="steaker" width="125" height="125">
 				</div>
 			</div>
@@ -85,6 +90,6 @@
 	<!-- CONTENT -->
 	
 
-	<script src="script.js"></script>
+	
 </body>
 </html>
