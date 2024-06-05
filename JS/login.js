@@ -43,7 +43,7 @@ console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
         console.log('Data received from server:', data); // Diagnostic des données reçues
         localStorage.setItem('jwtToken', data);
         // Redirigez vers la page principale ou effectuez une action similaire
-        window.location.href = '/pages/home.html';
+        window.location.href = '/home.html';
     })
     .catch(error => {
         console.error('There has been a problem with your fetch operation:', error);
@@ -58,7 +58,7 @@ function logOut() {
     localStorage.removeItem('jwtToken');
     
     // Rediriger vers la page home.html
-    window.location.href = '/pages/login.html';
+    window.location.href = '/login.html';
 
     console.log('logout succed !!');
 }
