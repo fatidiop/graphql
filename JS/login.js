@@ -62,9 +62,9 @@ function logOut() {
     localStorage.removeItem('sessionId');
     localStorage.removeItem('username');
     localStorage.removeItem('jwtToken');
-    
+
     // Rediriger vers la page home.html
-    location.reload();
+    // location.reload();
     window.location.href = '/index.html';
 
     //console.log('logout succed !!');

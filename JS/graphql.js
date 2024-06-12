@@ -324,3 +324,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.location.href = '/405.html'
   }
 });
+
+window.addEventListener('popstate', function() {
+  if (window.location.pathname == '/home.html' && !localStorage.getItem('jwtToken')) {
+    window.location.href = '/index.html'
+  }
+});
