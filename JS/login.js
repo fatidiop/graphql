@@ -15,7 +15,7 @@ function handleLogin(event) {
     const authUrl = 'https://learn.zone01dakar.sn/api/auth/signin';
 
     // Encodage en Base64
-var encodedLogin = btoa(username + ':' + password);
+var encodedLogin = Btoa(`${username}:${password}`);
 
 
 console.log(encodedLogin); // Affiche l'encodage en Base64 du mot de passe
@@ -69,3 +69,13 @@ function logOut() {
 
     //console.log('logout succed !!');
 }
+
+function Btoa(data) {
+    const encoder = new TextEncoder();
+    const uint8Format = encoder.encode(data);
+    let encoding = "";
+    uint8Format.forEach((byte) => {
+      encoding += String.fromCharCode(byte);
+    });
+    return btoa(encoding);
+  } 
