@@ -319,14 +319,14 @@ function drawLineGraph(data, containerId) {
 
 // drawLineGraph(data, 'line');
 
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.location.pathname == '/home.html' && !localStorage.getItem('jwtToken')) {
-    window.location.href = '/405.html'
-  }
-});
+// document.addEventListener('DOMContentLoaded', function() {
+//   if (window.location.pathname == '/home.html' && !localStorage.getItem('jwtToken')) {
+//     window.location.href = '/405.html'
+//   }
+// });
 
-window.addEventListener('popstate', function() {
-  if (window.location.pathname == '/home.html' && !localStorage.getItem('jwtToken')) {
-    window.location.href = '/index.html'
-  }
-});
+// window.addEventListener('popstate', function() {
+//   if (window.location.pathname == '/home.html' && !localStorage.getItem('jwtToken')) {
+//     window.location.href = '/405.html'
+//   }
+// });
